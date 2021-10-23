@@ -57,17 +57,9 @@ class PostTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let postId = posts[indexPath.row].id
-        performSegue(withIdentifier: "postToComment", sender: postId)
-    }
-
-    // MARK: - Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destinatoinVC = segue.destination as? CommentTableViewController {
-            if let postId = sender as? Int {
-                destinatoinVC.userName = userName
-                destinatoinVC.postId = postId
-            }
-        }
+        let commentTableViewController = CommentTableViewController()
+        commentTableViewController.userName = userName
+        commentTableViewController.postId = postId
+        self.navigationController?.pushViewController(commentTableViewController, animated: true)
     }
 }

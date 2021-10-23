@@ -57,34 +57,21 @@ class ChallengeViewController: UITableViewController {
         cell.contentView.backgroundColor = indexPath.row % 2 == 0 ? .white : UIColor(white: 0.667, alpha: 0.2)
         return cell
     }
-    
-    // MARK: - Navigation
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destinationVC = segue.destination as? AlbumTableViewController {
-            if let info = sender as? (id: Int, name: String) {
-                destinationVC.userId = info.id
-                destinationVC.userName = info.name
-            }
-        }
-        
-        if let destinationVC = segue.destination as? PostTableViewController {
-            if let info = sender as? (id: Int, name: String) {
-                destinationVC.userId = info.id
-                destinationVC.userName = info.name
-            }
-        }
-    }
 }
 
 extension ChallengeViewController: UserTableViewCellDelegate {
+    
     func didTapAlbums(with userId: Int, by name: String) {
-        let userIdAndName = (id: userId, name: name)
-        performSegue(withIdentifier: "challengeToAlbum", sender: userIdAndName)
+        let albumTableViewController = AlbumTableViewController()
+        albumTableViewController.userId = userId
+        albumTableViewController.userName = name
+        self.navigationController?.pushViewController(albumTableViewController, animated: true)
     }
     
     func didTapPosts(with userId: Int, by name: String) {
-        let userIdAndName = (id: userId, name: name)
-        performSegue(withIdentifier: "challengeToPost", sender: userIdAndName)
+        let postTableViewController = PostTableViewController()
+        postTableViewController.userId = userId
+        postTableViewController.userName = name
+        self.navigationController?.pushViewController(postTableViewController, animated: true)
     }
 }

@@ -55,17 +55,9 @@ class AlbumTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let albumId = albums[indexPath.row].id
-        performSegue(withIdentifier: "albumToPhoto", sender: albumId)
-    }
-
-    // MARK: - Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destinatoinVC = segue.destination as? PhotoTableViewController {
-            if let albumId = sender as? Int {
-                destinatoinVC.userName = userName
-                destinatoinVC.albumId = albumId
-            }
-        }
+        let photoTableViewController = PhotoTableViewController()
+        photoTableViewController.userName = userName
+        photoTableViewController.albumId = albumId
+        self.navigationController?.pushViewController(photoTableViewController, animated: true)
     }
 }

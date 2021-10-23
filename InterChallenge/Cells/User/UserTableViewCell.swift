@@ -179,7 +179,7 @@ extension UserTableViewCell: ViewCodeConfiguration {
         albumsButton.contentMode = .scaleToFill
         albumsButton.addTarget(self, action: #selector(albumsAction(sender:)), for: .touchUpInside)
 
-        postsButton.setTitle("ÁLBUNS", for: .normal)
+        postsButton.setTitle("POSTAGENS", for: .normal)
         postsButton.setTitleColor(.systemOrange, for: .normal)
         postsButton.titleLabel?.font = .systemFont(ofSize: 15)
         postsButton.titleLabel?.lineBreakMode = .byTruncatingMiddle

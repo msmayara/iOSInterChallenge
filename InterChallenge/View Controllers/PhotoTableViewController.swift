@@ -67,21 +67,12 @@ class PhotoTableViewController: UITableViewController {
         AF.download(photo.url).responseData { response in
             switch response.result {
             case .success(let data):
-                self.performSegue(withIdentifier: "photoToDetail",
-                                  sender: (photo: UIImage(data: data), name: photo.title))
+                let detailsViewController = DetailsViewController()
+                detailsViewController.photo = UIImage(data: data)!
+                detailsViewController.name = photo.title
+                self.navigationController?.pushViewController(detailsViewController, animated: true)
             default:
                 break
-            }
-        }
-    }
-
-    // MARK: - Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destinatinVC = segue.destination as? DetailsViewController {
-            if let info = sender as? (photo: UIImage, name: String) {
-                destinatinVC.photo = info.photo
-                destinatinVC.name = info.name
             }
         }
     }

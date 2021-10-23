@@ -43,6 +43,9 @@ extension AlbumTableViewCell: ViewCodeConfiguration {
     
     func configureViews() {
         
+        self.contentView.contentMode = .center
+        self.contentView.clipsToBounds = true
+        
         albumNameLabel.font = .systemFont(ofSize: 17)
         albumNameLabel.numberOfLines = 0
         albumNameLabel.textAlignment = .natural

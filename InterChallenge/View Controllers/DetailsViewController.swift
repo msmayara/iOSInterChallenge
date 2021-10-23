@@ -2,8 +2,8 @@ import UIKit
 
 class DetailsViewController: UIViewController {
 
-    @IBOutlet weak var detailImageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
+    var detailImageView = UIImageView()
+    var nameLabel = UILabel()
     
     var photo = UIImage()
     var name = String()

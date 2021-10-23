@@ -49,6 +49,9 @@ extension PhotoTableViewCell: ViewCodeConfiguration {
     
     func configureViews() {
         
+        self.contentView.contentMode = .center
+        self.contentView.clipsToBounds = true
+        
         photoImageView.contentMode = .scaleAspectFit
         photoImageView.clipsToBounds = true
         

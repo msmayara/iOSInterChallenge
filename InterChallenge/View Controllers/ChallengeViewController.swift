@@ -10,7 +10,7 @@ class ChallengeViewController: UITableViewController {
         
         self.navigationItem.title = "Desafio"
         
-        tableView.register(UINib(nibName: "UserTableViewCell", bundle: nil), forCellReuseIdentifier: "UserCell")
+        tableView.register(UserTableViewCell.self, forCellReuseIdentifier: "UserCell")
         fillUsers()
     }
     

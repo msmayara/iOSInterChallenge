@@ -10,7 +10,7 @@ class PostTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Postagens de \(userName)"
-        tableView.register(UINib(nibName: "TitleAndDescriptionTableViewCell", bundle: nil),
+        tableView.register(TitleAndDescriptionTableViewCell.self,
                            forCellReuseIdentifier: "TitleAndDescriptionCell")
         fillPosts(from: userId)
     }

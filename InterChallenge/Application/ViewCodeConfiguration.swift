@@ -17,8 +17,6 @@ protocol ViewCodeConfiguration {
 
 extension ViewCodeConfiguration {
     
-    func configureViews() {}
-    
     func applyViewCode() {
         
         buildViewHierarchy()

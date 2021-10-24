@@ -2,11 +2,11 @@ import Alamofire
 import UIKit
 
 class PhotoTableViewController: UITableViewController {
-
+    
     var albumId = Int()
     var userName = String()
     var photos = [Photo]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Fotos de \(userName)"
@@ -36,17 +36,17 @@ class PhotoTableViewController: UITableViewController {
             }
         }
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return photos.count
     }
-
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoCell", for: indexPath) as? PhotoTableViewCell else {
             return UITableViewCell()
         }
-
+        
         let photo = photos[indexPath.row]
         cell.titleLabel.text = photo.title
 
@@ -67,10 +67,12 @@ class PhotoTableViewController: UITableViewController {
         AF.download(photo.url).responseData { response in
             switch response.result {
             case .success(let data):
+
                 let detailsViewController = DetailsViewController()
                 detailsViewController.photo = UIImage(data: data)!
                 detailsViewController.name = photo.title
                 self.navigationController?.pushViewController(detailsViewController, animated: true)
+
             default:
                 break
             }

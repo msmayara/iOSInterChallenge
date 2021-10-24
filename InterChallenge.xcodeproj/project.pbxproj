@@ -178,6 +178,7 @@
 			children = (
 				BA93F7EB2632035800CE8AFF /* AppDelegate.swift */,
 				BA93F7ED2632035800CE8AFF /* SceneDelegate.swift */,
+				7DB1EFC8272201610082CCDF /* ViewCodeConfiguration.swift */,
 				BA93F7F62632035A00CE8AFF /* LaunchScreen.storyboard */,
 			);
 			path = Application;
@@ -304,7 +305,6 @@
 				BA93F7F12632035800CE8AFF /* Main.storyboard */,
 				BA93F7F42632035A00CE8AFF /* Assets.xcassets */,
 				BA93F7F92632035A00CE8AFF /* Info.plist */,
-				7DB1EFC8272201610082CCDF /* ViewCodeConfiguration.swift */,
 			);
 			path = InterChallenge;
 			sourceTree = "<group>";

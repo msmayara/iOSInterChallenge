@@ -25,27 +25,31 @@ extension DetailsViewController: ViewCodeConfiguration {
         detailImageView.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        detailImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
-        detailImageView.trailingAnchor.constraint(equalTo: view.leadingAnchor, constant: -24).isActive = true
-        detailImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 16).isActive = true
+        detailImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24).isActive = true
+        detailImageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24).isActive = true
+        detailImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16).isActive = true
         detailImageView.heightAnchor.constraint(equalToConstant: 250).isActive = true
         
         nameLabel.topAnchor.constraint(equalTo: detailImageView.bottomAnchor, constant: 16).isActive = true
-        nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
-        nameLabel.trailingAnchor.constraint(equalTo: view.leadingAnchor, constant: -24).isActive = true
+        nameLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24).isActive = true
+        nameLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24).isActive = true
     }
     
     func configureViews() {
 
+        self.view.backgroundColor = .white
+        
         nameLabel.text = name
+        nameLabel.font = .systemFont(ofSize: 17)
+        nameLabel.textAlignment = .natural
+        nameLabel.numberOfLines = 0
+        nameLabel.baselineAdjustment = .alignBaselines
+        nameLabel.lineBreakMode = .byTruncatingTail
+        nameLabel.contentMode = .left
         
         detailImageView.image = photo
         detailImageView.contentMode = .scaleAspectFit
         detailImageView.clipsToBounds = true
-        
     }
-    
-    
-    
-    
+
 }

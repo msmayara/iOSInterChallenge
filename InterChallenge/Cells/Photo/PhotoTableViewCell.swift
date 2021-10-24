@@ -43,8 +43,8 @@ extension PhotoTableViewCell: ViewCodeConfiguration {
         
         titleLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 60).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: photoImageView.trailingAnchor, constant: 16).isActive = true
-        titleLabel.trailingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: -16).isActive = true
-        
+        titleLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -16).isActive = true
+
     }
     
     func configureViews() {

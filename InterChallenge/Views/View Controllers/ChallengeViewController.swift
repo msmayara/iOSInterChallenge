@@ -3,6 +3,8 @@ import UIKit
 
 class ChallengeViewController: UITableViewController {
     
+    weak var coordinator: AppCoordinator?
+    
     var users = [User]()
     
     override func viewDidLoad() {
@@ -58,16 +60,10 @@ class ChallengeViewController: UITableViewController {
 extension ChallengeViewController: UserTableViewCellDelegate {
     
     func didTapAlbums(with userId: Int, by name: String) {
-        let albumTableViewController = AlbumTableViewController()
-        albumTableViewController.userId = userId
-        albumTableViewController.userName = name
-        self.navigationController?.pushViewController(albumTableViewController, animated: true)
+        self.coordinator?.goToAlbums(with: userId, by: name)
     }
     
     func didTapPosts(with userId: Int, by name: String) {
-        let postTableViewController = PostTableViewController()
-        postTableViewController.userId = userId
-        postTableViewController.userName = name
-        self.navigationController?.pushViewController(postTableViewController, animated: true)
+        self.coordinator?.goToPosts(with: userId, by: name)
     }
 }

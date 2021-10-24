@@ -2,6 +2,8 @@ import Alamofire
 import UIKit
 
 class AlbumTableViewController: UITableViewController {
+    
+    weak var coordinator: AppCoordinator?
 
     var userId = Int()
     var userName = String()
@@ -51,9 +53,6 @@ class AlbumTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let albumId = albums[indexPath.row].id
-        let photoTableViewController = PhotoTableViewController()
-        photoTableViewController.userName = userName
-        photoTableViewController.albumId = albumId
-        self.navigationController?.pushViewController(photoTableViewController, animated: true)
+        self.coordinator?.goToPhotos(with: albumId, by: userName)
     }
 }

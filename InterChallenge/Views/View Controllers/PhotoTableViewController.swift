@@ -3,6 +3,8 @@ import UIKit
 
 class PhotoTableViewController: UITableViewController {
     
+    weak var coordinator: AppCoordinator?
+    
     var albumId = Int()
     var userName = String()
     var photos = [Photo]()

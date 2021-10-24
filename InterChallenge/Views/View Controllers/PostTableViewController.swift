@@ -3,6 +3,8 @@ import UIKit
 
 class PostTableViewController: UITableViewController {
     
+    weak var coordinator: AppCoordinator?
+    
     var userId = Int()
     var userName = String()
     var posts = [Post]()
@@ -53,9 +55,6 @@ class PostTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let postId = posts[indexPath.row].id
-        let commentTableViewController = CommentTableViewController()
-        commentTableViewController.userName = userName
-        commentTableViewController.postId = postId
-        self.navigationController?.pushViewController(commentTableViewController, animated: true)
+        self.coordinator?.goToComments(with: postId, by: userName)
     }
 }

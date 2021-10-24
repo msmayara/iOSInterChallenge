@@ -1,6 +1,8 @@
 import UIKit
 
 class DetailsViewController: UIViewController {
+    
+    weak var coordinator: AppCoordinator?
 
     var detailImageView = UIImageView()
     var nameLabel = UILabel()

@@ -3,6 +3,8 @@ import UIKit
 
 class CommentTableViewController: UITableViewController {
     
+    weak var coordinator: AppCoordinator?
+    
     var postId = Int()
     var userName = String()
     var comments = [Comment]()
